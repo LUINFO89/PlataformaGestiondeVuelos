@@ -55,7 +55,7 @@ def login():
             username = request.form['username']
             password = request.form['password']
 
-            if not username:
+            '''if not username:
                 error = 'Debes ingresar el usuario'
                 flash( error )
                 return render_template( 'login.html' )
@@ -63,7 +63,7 @@ def login():
             if not password:
                 error = 'Contraseña requerida'
                 flash( error )
-                return render_template( 'login.html' )
+                return render_template( 'login.html' )'''
     
             user = db.execute(
                 'SELECT * FROM usuario WHERE usuario = ? AND contraseña = ?', (username, password)
@@ -130,7 +130,6 @@ def downloadimage():
 
 
 @app.route( '/send', methods=('GET', 'POST') )
-@login_required
 def send():
     return render_template( 'send.html' )
 
