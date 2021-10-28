@@ -18,7 +18,7 @@ app.secret_key = os.urandom( 24 )
 @app.route( '/' )
 def index():
     if g.user:
-        return redirect( url_for( 'send' ) )
+        return redirect( url_for( 'login.html' ) )
     return render_template( 'login.html' )
 
 
