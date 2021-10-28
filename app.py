@@ -130,6 +130,7 @@ def downloadimage():
 
 
 @app.route( '/send', methods=('GET', 'POST') )
+@login_required
 def send():
     return render_template( 'send.html' )
 
