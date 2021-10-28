@@ -10,7 +10,8 @@
       </div>
       <ul class="nav__link nav__link--menu">
         {% if g.user %}
-        <li class="nav__items"><a class="nav__a"  href="{{ url_for('logout') }}">Cerrar Sesión</a> {% else %}</li>
+        <li class="nav__items"><a class="nav__a"  href="{{ url_for('logout') }}">Cerrar Sesión</a> 
+        {% else %}</li>
         <li class="nav__items"><a class="nav__a" href="{{ url_for('register') }}">Registrarse</a></li>
         <li class="nav__items"><a class="nav__a"href="{{ url_for('login') }}">Iniciar Sesión</a> {% endif %}</li>
         <li class="nav__items"><a class="nav__a" href="{{ url_for('contacto') }}">Contactenos</a></li>
