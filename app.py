@@ -132,7 +132,9 @@ def downloadimage():
 @app.route( '/send', methods=('GET', 'POST') )
 @login_required
 def send():
-    if request.method == 'POST':
+    return render_template( 'send.html' )
+
+    '''if request.method == 'POST':
         from_id = g.user['id']
         to_username = request.form['para']
         subject = request.form['asunto']
@@ -172,7 +174,7 @@ def send():
             )
             db.commit()
             close_db()
-            flash( "Mensaje Enviado" )
+            flash( "Mensaje Enviado" )'''
     return render_template( 'send.html' )
 
 
