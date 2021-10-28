@@ -102,6 +102,7 @@ def login():
 
 @app.route( '/contacto', methods=('GET', 'POST') )
 def contacto():
+    
     form = Contactenos()
     return render_template( 'contacto.html', titulo='Contactenos', form=form )
 
@@ -146,7 +147,8 @@ def send():
 @login_required
 def inicio():
     form = formularioI()
-    return render_template('reservas.html', form = form)
+    if g.user:
+        return render_template('reservas.html', form = form)
 
 #---------------------------------------RESERVAS CREAR--------------------------------------------#
 @app.route('/reservas/guardar/', methods=["POST"])
@@ -242,7 +244,8 @@ def actualizar():
 @login_required
 def inicioC():
     form = formularioC()
-    return render('comentarios.html', form = form)
+    if g.user:
+         return render('comentarios.html', form = form)
 #----------------------------------------CREAR CRUD COMENTARIOS ------------------------------------------------#
 @app.route('/comentarios/guardar/', methods=["GET","POST"])
 def guardarC():
@@ -324,7 +327,8 @@ def visualizarC():
 @login_required
 def inicioV():
     form = formularioV()
-    return render('vuelos.html', form = form)
+    if g.user:
+        return render('vuelos.html', form = form)
 #----------------------------------------CREAR CRUD VUELOS
 
 @app.route('/vuelos/guardar/', methods=["GET","POST"])
@@ -417,7 +421,8 @@ def eliminarV():
 @login_required
 def inicioU():
     form = formularioU()
-    return render('usuarios.html', form = form)
+    if g.user:
+        return render('usuarios.html', form = form)
 #----------------------------------------EDITAR USUSARIO  ---------------------------------------------#
 
 @app.route('/usuarios/guardar/', methods=["GET","POST"])
