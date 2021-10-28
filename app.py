@@ -18,7 +18,7 @@ app.secret_key = os.urandom( 24 )
 @app.route( '/' )
 def index():
     if g.user:
-        return redirect( url_for( 'login.html' ) )
+        return redirect( url_for( 'send' ) )
     return render_template( 'login.html' )
 
 
@@ -55,7 +55,7 @@ def login():
             username = request.form['username']
             password = request.form['password']
 
-            '''if not username:
+            if not username:
                 error = 'Debes ingresar el usuario'
                 flash( error )
                 return render_template( 'login.html' )
@@ -63,7 +63,7 @@ def login():
             if not password:
                 error = 'Contraseña requerida'
                 flash( error )
-                return render_template( 'login.html' )'''
+                return render_template( 'login.html' )
     
             user = db.execute(
                 'SELECT * FROM usuario WHERE usuario = ? AND contraseña = ?', (username, password)
@@ -132,50 +132,12 @@ def downloadimage():
 @app.route( '/send', methods=('GET', 'POST') )
 @login_required
 def send():
-    return render_template( 'send.html' )
+    if g.user:
+        return render_template('send.html')
 
-    '''if request.method == 'POST':
-        from_id = g.user['id']
-        to_username = request.form['para']
-        subject = request.form['asunto']
-        body = request.form['mensaje']
-        db = get_db()
-
-        if not to_username:
-            flash( 'Para campo requerido' );
-            return render_template( 'send.html' )
-
-        if not subject:
-            flash( 'Asunto es requerido' );
-            return render_template( 'send.html' )
-
-        if not body:
-            flash( 'Mensaje es requerido' );
-            return render_template( 'send.html' )
-
-        error = None
-        userto = None
-
-        userto = db.execute(
-            'SELECT * FROM usuario WHERE usuario = ?', (to_username,)
-        ).fetchone()
-
-        if userto is None:
-            error = 'No existe ese usuario'
-
-        if error is not None:
-            flash( error )
-        else:
-            db = get_db()
-            db.execute(
-                'INSERT INTO mensajes (from_id, to_id, asunto, mensaje)'
-                ' VALUES (?, ?, ?, ?)',
-                (g.user['id'], userto['id'], subject, body)
-            )
-            db.commit()
-            close_db()
-            flash( "Mensaje Enviado" )'''
-    return render_template( 'send.html' )
+    
+    
+  
 
 
 #----------------------------------------INICIO CRUD RESERVAS--------------------------------------#
