@@ -1,0 +1,61 @@
+{% extends 'base.html' %} {% block header %}
+<h1 > Menu! </h1>
+{% endblock %} {% block content %}
+<div class="general">
+
+    <section class="formularioUsuarios">
+         
+            <h1>USUARIOS</h1>
+            <div class="form">
+                
+                    <form action="/usuarios/guardar/" id="IdFormularioU" method="POST">
+                        {{ form.hidden_tag() }}<!--Evitar ataques de CRSF SIDE FORGUETTY-->
+                        <div>
+                            {{ form.documento.label }} <br>
+                            {{ form.documento() }}
+                           
+                        </div>
+                        <div>
+                            {{ form.nombre.label }}<br>
+                            {{ form.nombre() }}
+
+                        </div>
+                        
+                        <div>
+                            {{ form.usuario.label }}
+                            {{ form.usuario() }}
+                            {{ form.contraseña.label }}
+                            {{ form.contraseña() }}
+                        </div>
+                        <div>
+                            {{ form.correo.label }}
+                            {{ form.correo() }}
+                            {{ form.nacimiento.label }}
+                            {{ form.nacimiento() }}
+                        </div>
+                        <div>
+                            {{ form.telefono.label }}
+                            {{ form.telefono() }}
+                            {{ form.direccion.label }}
+                            {{ form.direccion() }}
+                        </div>
+                        <div>
+                            {{ form.rol.label }}
+                            {{ form.rol() }}
+                            
+                        </div>
+                        
+                        <div>
+                            {{form.botonCrear()}}
+                            {{form.botonVisualizar()}}
+                            {{form.botonEliminar()}}
+                            {{form.botonActualizar()}}
+
+                        </div>
+                    </form>
+                <li class="nav__items"><a href="/send" class="nav__links">Regresar a Menu principal</a></li>  
+            </div>
+    </section>
+</div>
+
+{% endblock %}

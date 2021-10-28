@@ -1,0 +1,72 @@
+{% extends 'base.html' %} {% block header %}
+<h1 > Vista Vuelos  </h1>
+{% endblock %} {% block content %}
+        <div class="general">
+
+                <table border="1">
+                    <tr>
+                        <td>
+                            ID
+                        </td>
+                        <td>
+                            VUELO
+                        </td>
+                        <td>
+                            AEROLINEA                        </td>
+                        <td>
+                            HORA
+                        </td>
+                        <td>
+                            DESTINO
+                        </td>
+                        <td>
+                            HORA DESTINO
+                        </td>
+                        <td>
+                            OBSERVACION
+                        </td>
+                        <td>
+                            PILOTO
+                        </td>
+                        <td>
+                            CAPACIDAD
+                        </td>
+                    </tr>
+                    {% if row %}
+                    <tr>
+                        <td>
+                            {{ row["id"] }}
+                        </td>
+                        <td>
+                            {{ row["vuelo"] }}
+                        </td>
+                        <td>
+                            {{ row["aerolinea"] }}
+                        </td>
+                        <td>
+                            {{ row["hora"] }}
+                        </td>
+                        <td>
+                            {{ row["destino"] }}
+                        </td>
+                        <td>
+                            {{ row["horadestino"] }}
+                        </td>
+                        <td>
+                            {{ row["observacion"] }}
+                        </td>
+                        <td>
+                            {{ row["piloto"] }}
+                        </td>
+                        <td>
+                            {{ row["capacidad"] }}
+                        </td>
+                    </tr>
+                    {% endif %}
+                </table>
+                <li class="nav__items"><a href="/send" class="nav__links">Regresar a Menu principal</a></li>  
+
+
+        </div>   
+
+    {% endblock %}

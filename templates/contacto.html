@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% block header %}
+<h1>Contáctenos</h1>
+
+{% endblock %} {% block content %}
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.nombre.label }}<br /> {{ form.nombre(size=30)}}<br />
+    </p>
+    <p>
+        {{ form.correo.label }}<br /> {{ form.correo(size=30) }}<br />
+    </p>
+    <p>
+        {{ form.mensaje.label }}<br /> {{ form.mensaje(size=40)}}<br />
+    </p>
+    <p>{{ form.enviar() }}</p>
+</form>
+
+
+
+<div class="developer">
+    <table >
+        <tr>
+            <td >
+                <p><img src="{{ url_for('static', filename='images/luis.png') }}"  href="https://github.com/LUINFO89"  id="contacto"></p>
+                <p>Developer Luis Hernando Soto </p>
+
+            </td>
+            <td>
+                <p><img src="{{ url_for('static', filename='images/jose.png') }}"  href="https://github.com/LUINFO89"  id="contacto"></p>
+                <p>Developer José Cortés Vargas</p>
+
+            </td>
+            
+        </tr>
+    
+    </table>
+
+            <li class="nav__items"><a href="https://github.com/LUINFO89" class="nav__links">Proyects</a></li> 
+            <li class="nav__items"><a href="https://github.com/LUINFO89" class="nav__links">https://github.com/LUINFO89</a></li> 
+</div>
+
+
+{% endblock %}

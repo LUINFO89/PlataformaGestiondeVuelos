@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<title>{% block title %}{% endblock %} Aeropuerto Flaminio Suárez Camacho </title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/miEstilo.css') }}" />
+<link rel="shortcut icon" href="{{ url_for('static', filename='/images/airplane.ico') }}" type="image/x-icon">
+<script src="{{ url_for('static', filename='js/funciones.js')}}"></script>
+<header class="hero">
+  <nav class="nav container">
+      <div class="nav__logo">
+          <h2 class="nav__title">Aeropuerto Flaminio Suárez Camacho.</h2>
+      </div>
+      <ul class="nav__link nav__link--menu">
+        {% if g.user %}
+        <li class="nav__items"><a class="nav__a"  href="{{ url_for('logout') }}">Cerrar Sesión</a> {% else %}</li>
+        <li class="nav__items"><a class="nav__a" href="{{ url_for('register') }}">Registrarse</a></li>
+        <li class="nav__items"><a class="nav__a"href="{{ url_for('login') }}">Iniciar Sesión</a> {% endif %}</li>
+        <li class="nav__items"><a class="nav__a" href="{{ url_for('contacto') }}">Contactenos</a></li>
+    </ul>
+  </nav>
+
+<section class="content">
+    <header>{% block header %}{% endblock %}</header>
+    {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+    {% endfor %} {% block content %}{% endblock %}
+</section>
+</header>
+
+<footer class="footer mt-auto py-3 bg-light">
+  <div class="containerfooter">
+    <p class="text-muted">Copyright © 2021-2021. Grupo 2 Misiontic 2022</p>
+    
+  </div>
+</footer>

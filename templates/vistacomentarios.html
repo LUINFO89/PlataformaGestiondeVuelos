@@ -1,0 +1,48 @@
+{% extends 'base.html' %} {% block header %}
+<h1 > vista comentarios </h1>
+{% endblock %} {% block content %}
+        <div class="general">
+
+                <table border="1">
+                    <tr>
+                        <td>
+                            IDENTIFICACION
+                        </td>
+                        <td>
+                            NOMBRE PASAJERO
+                        </td>
+                        <td>
+                            LUGAR DE DESTINO                        
+                        </td>
+                        <td>
+                            COMENTARIO USUARIO
+                        </td>
+                       
+                        
+                    </tr>
+                    {% if row %}
+                    <tr>
+                        <td>
+                            {{ row["ID"] }}
+                        </td>
+                        <td>
+                            {{ row["NOMBREVIAJERO"] }}
+                        </td>
+                        <td>
+                            {{ row["LUGARDEVUELO"] }}
+                        </td>
+                        <td>
+                            {{ row["MENSAJE"] }}
+                        </td>
+                        
+                    </tr>
+                    {% endif %}
+                </table>
+                <li class="nav__items"><a href="/comentarios" class="nav__links">Regresar</a></li>  
+
+                <li class="nav__items"><a href="/send" class="nav__links">Regresar a Menu principal</a></li>  
+
+
+        </div>   
+
+    {% endblock %}

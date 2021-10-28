@@ -1,0 +1,61 @@
+{% extends 'base.html' %} {% block header %}
+<h1 > Vista Reservas ! </h1>
+{% endblock %} {% block content %}
+        <div class="general">
+
+                <table border="1">
+                    <tr>
+                        <td>
+                            id
+                        </td>
+                        <td>
+                            nombre
+                        </td>
+                        <td>
+                            Lugar de viaje                        </td>
+                        <td>
+                            Lugar de Destino
+                        </td>
+                        <td>
+                            Salida
+                        </td>
+                        <td>
+                            Regreso
+                        </td>
+                        <td>
+                            Cantidad de pasajeros
+                        </td>
+                    </tr>
+                    {% if row %}
+                    <tr>
+                        <td>
+                            {{ row["documento"] }}
+                        </td>
+                        <td>
+                            {{ row["nombre"] }}
+                        </td>
+                        <td>
+                            {{ row["lugardesde"] }}
+                        </td>
+                        <td>
+                            {{ row["hasta"] }}
+                        </td>
+                        <td>
+                            {{ row["salida"] }}
+                        </td>
+                        <td>
+                            {{ row["regreso"] }}
+                        </td>
+                        <td>
+                            {{ row["cantidad"] }}
+                        </td>
+                    </tr>
+                    {% endif %}
+                </table>
+                <li class="nav__items"><a href="/send" class="nav__links">Regresar a Menu principal</a></li>  
+
+
+
+        </div>   
+
+    {% endblock %}

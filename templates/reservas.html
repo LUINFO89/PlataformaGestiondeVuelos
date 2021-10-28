@@ -1,0 +1,54 @@
+{% extends 'base.html' %} {% block header %}
+<h1>Envio de Mensajes Resevas</h1>
+{% endblock %} {% block content %}
+
+
+<div class="general">
+    <div class="form">
+            <h1>RESERVA TU VUELO</h1>
+           
+            <form action="/reservas/guardar/" id="IdFormulario" method="POST">
+                {{ form.hidden_tag() }}<!--Evitar ataques de CRSF SIDE FORGUETTY-->
+                <div>
+                    {{ form.documento.label }}<br>
+                    {{ form.documento() }}
+                </div>
+                <div>
+                    {{ form.nombre.label }}<br>
+                    {{ form.nombre() }}
+                </div>
+                <div>
+                    {{ form.lugardesde.label }}<br>
+                    {{ form.lugardesde() }}
+                </div>
+                <div>
+                    {{ form.hasta.label }}<br>
+                    {{ form.hasta() }}
+                </div>
+                <div>
+                    {{ form.salida.label }}<br>
+                    {{ form.salida() }}
+                    
+                </div>
+                <div>
+                    {{ form.regreso.label }}<br>
+                    {{ form.regreso() }}
+                </div>
+                <div>
+                    {{ form.cantidadpasajeros.label }}<br>
+                    {{ form.cantidadpasajeros() }}
+                </div>
+                <div>
+                    {{form.botonCrear()}}
+                    {{form.botonVisualizar()}}
+                    {{form.botonEliminar()}}
+                    {{form.botonActualizar()}}
+                </div>
+            </form>
+            
+            
+        <li class="nav__items"><a href="/send" class="nav__links">Regresar a Menu principal</a></li>  
+
+    </div>
+</div>   
+{% endblock %}

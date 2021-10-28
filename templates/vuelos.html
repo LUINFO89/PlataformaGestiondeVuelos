@@ -1,0 +1,67 @@
+{% extends 'base.html' %} {% block header %}
+<h1>Envio de Mensajes Vuelos</h1>
+{% endblock %} {% block content %}
+
+
+
+<div class="general">
+    
+    <div class="form">
+        <h1>VUELO</h1>
+        <fieldset >
+        <form action="/vuelos/guardar/" id="IdFormularioV" method="POST">
+            {{ form.hidden_tag() }}<!--Evitar ataques de CRSF SIDE FORGUETTY-->
+            <div>
+                {{ form.documento.label }}
+                {{ form.documento() }}
+            </div>
+            <div>
+                {{ form.idreserva.label }}
+                {{ form.idreserva() }}
+            </div>
+            <div>
+                {{ form.aerolinea.label }}
+                {{ form.aerolinea() }}
+            </div>
+            <div>
+                {{ form.hora.label }}
+                {{ form.hora() }}
+            </div>
+            <div>
+                {{ form.destino.label }}
+                {{ form.destino() }}
+            </div>
+            <div>
+                {{ form.horadestino.label }}
+                {{ form.horadestino() }}
+            </div>
+            <div>
+                {{ form.observacion.label }}
+                {{ form.observacion() }}
+            </div>
+            <div>
+                {{ form.piloto.label }}
+                {{ form.piloto() }}
+            </div>
+            <div>
+                {{ form.capacidad.label }}
+                {{ form.capacidad() }}
+            </div>
+            <div>
+                {{form.botonVisualizar()}}
+                {{form.botonEliminar()}}
+                {{form.botonActualizar()}}
+                {{form.botonCrear()}}
+
+            </div>
+            
+        </form>
+        </fieldset>
+        
+    </form>
+    <li class="nav__items"><a href="/send" class="nav__links">Regresar a Menu principal</a></li>  
+
+</div>
+
+</div>
+{% endblock %}

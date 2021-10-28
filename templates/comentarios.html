@@ -1,0 +1,45 @@
+{% extends 'base.html' %} {% block header %}
+<h1>Envio de Mensajes </h1>
+{% endblock %} {% block content %}
+
+<div class="general">
+<div class="form">
+    <h1>SUGERENCIAS Y COMENTARIOS </h1>
+    <form action="/comentarios/guardar/" id="IdFormularioC" method="POST">
+        {{ form.hidden_tag() }}<!--Evitar ataques de CRSF SIDE FORGUETTY-->
+        <div>
+            {{ form.documento.label }}<br>
+            {{ form.documento() }}
+        </div>
+        <div>
+            {{ form.nombre.label }}<br>
+            {{ form.nombre() }}
+        </div>
+            
+        
+        <div>
+            {{ form.lugar.label }}<br>
+            {{ form.lugar() }}
+        </div>
+        <br>
+        <p>
+            {{ form.mensaje.label }}<br>
+        </p>
+        <br>
+        <div>
+            {{ form.mensaje() }}<br>
+        </div>
+        
+        <div>
+            {{form.botonCrear()}}
+            {{form.botonVisualizar()}}
+            {{form.botonEliminar()}}
+            {{form.botonActualizar()}}
+        </div>
+    </form>
+
+    <li class="nav__items"><a href="/send" class="nav__links">Regresar a Menu principal</a></li>  
+
+</div>
+</div>   
+{% endblock %}

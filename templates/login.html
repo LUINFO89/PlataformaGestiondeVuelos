@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block header %}
+<h1>Iniciar Sesión</h1>
+{% endblock %} {% block content %}
+
+     
+<br>
+
+<form name="loginForm" method="post" action="{{ url_for('login') }}">
+    <div>
+        <label for="username">Usuario</label><br>
+        <input name="username" id="username" />
+    </div>
+    <div>
+        <label for="password">Contraseña</label><br>
+        <input type="password" name="password" id="password" />
+        <!--img src="{{ url_for('static', filename='images/view.png') }}" onmouseover="mostrarPassword();" onmouseout="ocultarPassword();" /-->
+    </div>
+    <input type="submit" value="Iniciar Sesion" />
+</form>
+<br>
+<br>
+<div style="text-align: center">
+    <li class="nav__items"><a href="{{ url_for('contacto') }}" class="nav__links">CONTACTENOS</a></li>  
+</div>
+
+
+{% endblock %}
