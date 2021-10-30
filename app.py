@@ -118,16 +118,6 @@ def login_required(view):
     return wrapped_view
 
 
-@app.route( '/downloadpdf', methods=('GET', 'POST') )
-# @login_required
-def downloadpdf():
-    return send_file( "resources/doc.pdf", as_attachment=True )
-
-
-@app.route( '/downloadimage', methods=('GET', 'POST') )
-@login_required
-def downloadimage():
-    return send_file( "resources/image.png", as_attachment=True )
 
 
 @app.route( '/send', methods=('GET', 'POST') )
@@ -175,11 +165,6 @@ def guardar():
                 return "<script> alert('Reserva creada y guardada' ); </script>"
         return "No se pudo guardar T_T"    
 
-'''@app.route('/vista', methods=["GET","POST"])
-@login_required
-
-def vista():
-     return render ("reservas.html")'''
 
 @app.route('/reservas/visualizar/', methods=["POST"])
 def visualizar():
@@ -226,11 +211,10 @@ def actualizar():
         salida = form.salida.data
         regreso = form.regreso.data
         cantidad = form.cantidadpasajeros.data
-        idreserva = form.idreserva.data
         with sqlite3.connect("database.db") as conn:
             cur = conn.cursor()
             cur.execute(
-                "UPDATE  reserva SET nombre = ?, lugardesde = ?, hasta = ?, salida = ?,regreso = ?,cantidad = ?WHERE Documento = ?;",
+                "UPDATE  reserva SET nombre = ?, lugardesde = ?, hasta = ?, salida = ?,regreso = ?,cantidad = ? WHERE Documento = ?;",
              [docum, nombr, lugar, hasta, salida,regreso, cantidad]
              )
             conn.commit()#Confirmación de inserción de datos :)
